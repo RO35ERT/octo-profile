@@ -1,10 +1,15 @@
 import React from 'react'
-import NavBar from './components/NavBar';
+import Image from 'next/image';
 
 const HomePage = () => {
   return (
     <div className="">
-      <img src={`https://unsplash.com/photos/blue-and-black-penguin-plush-toy-UT8LMo-wlyk`} alt="Github" />
+      <Image
+        src={'/bg1.png'}
+        width={300}
+        height={280}
+        alt='penguin'
+      />
     </div>
   );
 }
