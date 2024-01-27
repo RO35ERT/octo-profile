@@ -2,16 +2,19 @@
 import React from 'react'
 import { useState } from'react';
 import {FaStar,FaEye, FaCodeBranch} from "react-icons/fa";
+import Link from 'next/link';
 
 const Profile = () => {
 
-    const [search, setSearch] = useState("")
+    const [search, setSearch] = useState("");
+    const [repo, setRepo] = useState("");
+    const [set, setSet] = useState(false);
 
     const handleSearchChange = (e) => {
         setSearch(e.target.value);
     };
 
-    function handleSubmit(){
+    const  handleSubmit = async() => {
         
     }
   return (
@@ -23,9 +26,26 @@ const Profile = () => {
             </form>
             <div className="bg-white w-2/4 mx-10 my-6 px-5 py-4 rounded-tl-lg rounded-bl-lg text-sm focus:outline-none text-black">
                 <div className="">
-                    <div className="bg-blue-500 text-white font-bold py-2 px-4 rounded-lg">
-                        <h4>My blog post</h4>
-                    </div>
+                    <Link href='/'>
+                        <div className="bg-blue-500 text-gray-300 mb-4 font-bold py-2 px-4 rounded-lg">
+                            <h4 className='px-5 text-lg'>My blog post</h4>
+                            <div className="flex justify-between items-center text-lg px-5 py-5">
+                                <div className="flex items-center gap-4">
+                                    <FaStar/>
+                                    <p>3</p>
+                                </div>
+                                <div className="flex items-center gap-4">
+                                    <FaCodeBranch/>
+                                    <p>5</p>
+                                </div>
+                                <div className="flex items-center gap-4">
+                                    <FaEye/>
+                                    <p>6</p>
+                                </div>
+                            </div>
+                        </div>
+                    </Link>
+
                 </div>
             </div>
         </div>
