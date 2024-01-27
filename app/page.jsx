@@ -3,7 +3,7 @@ import Image from 'next/image';
 
 const HomePage = () => {
   return (
-    <div className="">
+    <div className="bg-gray-900 text-gray-100 flex justify-center items-center">
       <Image
         src={'/bg1.png'}
         width={300}
