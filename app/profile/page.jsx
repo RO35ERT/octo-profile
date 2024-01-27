@@ -15,21 +15,14 @@ const Profile = () => {
     };
 
     const  handleSubmit = async() => {
-        const res = await fetch(`https://api.github.com/users/ro35ert/repos`);
-
-        const promise = new Promise((resolve) => {
-            setTimeout(() => {
-              // Assuming `res` is already defined somewhere in your code
-              resolve(res);
-            }, 3000);
-          });
-          
-        const data = await res.json();
-        setRepo(data);
-        setSet(true);
+        if(search.length > 0){
+            const res = await fetch(`https://api.github.com/users/${search}/repos`);
+            const data = await res.json();
+            setRepo(data);
+            setSet(true);
+        }
     }
 
-    handleSubmit();
   return (
     <div className='bg-gray-900 text-gray-100'>
         <div className="max-w-screen-xl mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8 flex flex-col justify-center items-center">
@@ -39,7 +32,7 @@ const Profile = () => {
             </div>
             <div className="w-3/4 mx-10 my-6 px-5 py-4 rounded-lg text-sm focus:outline-none text-black flex flex-col justify-center">
                 <div className="">
-                    {repos.map((repo)=>{
+                    {set ? repos.map((repo)=>{
                         return (
                             <Link className='' href='/'>
                             <div className="bg-blue-500 w-3/4 text-gray-300 mb-4 mx-auto font-bold py-2 px-4 rounded-lg">
@@ -61,7 +54,7 @@ const Profile = () => {
                             </div>
                         </Link>
                         )
-                    })}
+                    }):<p className='text-center text-white'>Search for a repository</p>}
                 </div>
             </div>
         </div>
