@@ -2,17 +2,18 @@
 
 import React from 'react';
 import { useState } from'react';
+import Profile from '../profile/page';
 
-const Search = ({}) => {
+const Search = () => {
 
     const [search, setSearch] = useState("")
 
     const handleSearchChange = (e) => {
-    setSearch(e.target.value);
+        setSearch(e.target.value);
     };
 
     function handleSubmit(){
-        
+        <Profile search={search} />
     }
 
   return (
