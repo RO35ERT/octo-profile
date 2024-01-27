@@ -1,5 +1,6 @@
 import { Roboto } from "next/font/google";
 import "./globals.css";
+import NavBar from "./components/NavBar";
 
 const roboto = Roboto(
   { 
@@ -15,7 +16,12 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={roboto.className}>{children}</body>
+      <body className={roboto.className}>
+        <div className='bg-gray-900 text-gray-100'>
+            <NavBar/>
+        </div>  
+        {children}
+      </body>
     </html>
   );
 }
