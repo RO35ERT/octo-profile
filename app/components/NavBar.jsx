@@ -7,7 +7,7 @@ const poppins = Poppins({weight: '500',subsets: ['latin-ext']});
 const NavBar = () => {
   return (
     <div className={poppins.className}>
-        <nav className='flex justify-end py-10 px-8'>
+        <nav className='flex justify-end py-12 px-8'>
             <ul className='flex gap-8'>
                 <li className='text-lg'><Link href='/'>Home</Link></li>
                 <li className='text-lg'><Link href='/profile'>Profile</Link></li>

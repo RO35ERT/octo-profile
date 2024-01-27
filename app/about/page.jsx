@@ -16,7 +16,7 @@ const About = () => {
       <p>
         Whether you're looking for details about a specific repository, <br />exploring popular projects, or tracking the latest trends in the Git world, our site has you covered.
       </p>
-      <ul>
+      <ul className='pt-1'>
         <li>Search for repositories by name or owner</li>
         <li>View detailed information about a specific repository</li>
         <li>Discover popular repositories across different categories</li>

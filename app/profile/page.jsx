@@ -26,7 +26,7 @@ const Profile = () => {
   return (
     <div className='bg-gray-900 text-gray-100'>
         <div className="max-w-screen-xl mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8 flex flex-col justify-center items-center">
-            <div>
+            <div className=''>
                 <input value={search} onChange={handleSearchChange} className="bg-white h-10 px-5 rounded-tl-lg rounded-bl-lg text-sm focus:outline-none text-black" placeholder="Search" />
                 <button onClick={handleSubmit} className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-tr-lg rounded-br-lg">search</button>
             </div>
@@ -54,7 +54,7 @@ const Profile = () => {
                             </div>
                         </Link>
                         )
-                    }):<p className='text-center text-white'>Search for a repository</p>}
+                    }):<p className='text-center text-white pt-7'>Search for a repository</p>}
                 </div>
             </div>
         </div>
