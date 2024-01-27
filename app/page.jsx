@@ -7,7 +7,7 @@ const HomePage = () => {
       <Image
         src={'/bg1.png'}
         width={300}
-        height={280}
+        height={300}
         alt='penguin'
       />
     </div>
