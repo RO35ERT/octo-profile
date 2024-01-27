@@ -3,7 +3,6 @@ import React from 'react'
 import { useState } from'react';
 import {FaStar,FaEye, FaCodeBranch} from "react-icons/fa";
 import Link from 'next/link';
-import { revalidatePath } from 'next/cache';
 
 const Profile = () => {
 
@@ -17,6 +16,14 @@ const Profile = () => {
 
     const  handleSubmit = async() => {
         const res = await fetch(`https://api.github.com/users/ro35ert/repos`);
+
+        const promise = new Promise((resolve) => {
+            setTimeout(() => {
+              // Assuming `res` is already defined somewhere in your code
+              resolve(res);
+            }, 3000);
+          });
+          
         const data = await res.json();
         setRepo(data);
         setSet(true);
@@ -30,28 +37,30 @@ const Profile = () => {
                 <input value={search} onChange={handleSearchChange} className="bg-white h-10 px-5 rounded-tl-lg rounded-bl-lg text-sm focus:outline-none text-black" placeholder="Search" />
                 <button onClick={handleSubmit} className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-tr-lg rounded-br-lg">search</button>
             </div>
-            <div className="bg-white w-2/4 mx-10 my-6 px-5 py-4 rounded-tl-lg rounded-bl-lg text-sm focus:outline-none text-black">
+            <div className="w-3/4 mx-10 my-6 px-5 py-4 rounded-lg text-sm focus:outline-none text-black flex flex-col justify-center">
                 <div className="">
                     {repos.map((repo)=>{
-                        <Link href='/'>
-                        <div className="bg-blue-500 text-gray-300 mb-4 font-bold py-2 px-4 rounded-lg">
-                            <h4 className='px-5 text-lg'>My blog post</h4>
-                            <div className="flex justify-between items-center text-lg px-5 py-5">
-                                <div className="flex items-center gap-4">
-                                    <FaStar/>
-                                    <p>3</p>
-                                </div>
-                                <div className="flex items-center gap-4">
-                                    <FaCodeBranch/>
-                                    <p>5</p>
-                                </div>
-                                <div className="flex items-center gap-4">
-                                    <FaEye/>
-                                    <p>6</p>
+                        return (
+                            <Link className='' href='/'>
+                            <div className="bg-blue-500 w-3/4 text-gray-300 mb-4 mx-auto font-bold py-2 px-4 rounded-lg">
+                                <h4 className='px-5 text-lg'>{repo.name}</h4>
+                                <div className="flex justify-between items-center text-lg px-5 py-5">
+                                    <div className="flex items-center gap-4">
+                                        <FaStar/>
+                                        <p>{repo.stargazers_count}</p>
+                                    </div>
+                                    <div className="flex items-center gap-4">
+                                        <FaCodeBranch/>
+                                        <p>{repo.forks_count}</p>
+                                    </div>
+                                    <div className="flex items-center gap-4">
+                                        <FaEye/>
+                                        <p>{repo.watchers}</p>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </Link>
+                        </Link>
+                        )
                     })}
                 </div>
             </div>
