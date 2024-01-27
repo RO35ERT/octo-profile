@@ -1,23 +1,22 @@
 'use client'
 import React from 'react'
 import { useState } from'react';
-import { useRouter } from 'next/router';
 
 
-const RepoPage = () => {
+const RepoPage = ({params}) => {
     const [repos, setRepo] = useState([]);
+    const  handleSubmit = async() => {
+        if(search.length > 0){
+            const res = await fetch(`https://api.github.com/users/${params.params[1]}/repos`);
+            const data = await res.json();
+            setRepo(data);
+        }
+    }
 
-    const router = useRouter();
-    const { params } = router.query;
-    // const  handleSubmit = async() => {
-    //     if(search.length > 0){
-    //         const res = await fetch(`https://api.github.com/users/ro35ert/repos`);
-    //         const data = await res.json();
-    //         setRepo(data);
-    //     }
-    // }
+    
+
   return (
-    <div>{params.name}</div>
+    <div>{}</div>
   )
 }
 
