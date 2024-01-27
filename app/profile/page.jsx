@@ -2,7 +2,7 @@ import React from 'react'
 
 const Profile = () => {
   return (
-    <div>Profile</div>
+    <div className='bg-black text-gray-100'>Profile</div>
   )
 }
 
