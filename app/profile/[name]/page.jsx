@@ -1,22 +1,19 @@
 'use client'
 import React from 'react'
-import { useState } from 'react';
+import { useState } from'react';
 
-const [search, setSearch] = useState("");
-    const [repos, setRepo] = useState([]);
-
-
-    const  handleSubmit = async() => {
-        if(search.length > 0){
-            const res = await fetch(`https://api.github.com/users/${search}/repos`);
-            const data = await res.json();
-            setRepo(data);
-        }
-    }
 
 const RepoPage = ({params}) => {
+    const [repos, setRepo] = useState([]);
+    // const  handleSubmit = async() => {
+    //     if(search.length > 0){
+    //         const res = await fetch(`https://api.github.com/users/ro35ert/repos`);
+    //         const data = await res.json();
+    //         setRepo(data);
+    //     }
+    // }
   return (
-    <div><RepoPage/></div>
+    <div>Hello</div>
   )
 }
 
