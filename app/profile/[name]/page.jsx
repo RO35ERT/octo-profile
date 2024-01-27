@@ -1,4 +1,6 @@
+'use client'
 import React from 'react'
+import { useState } from 'react';
 
 const [search, setSearch] = useState("");
     const [repos, setRepo] = useState([]);
@@ -14,7 +16,7 @@ const [search, setSearch] = useState("");
 
 const RepoPage = ({params}) => {
   return (
-    <div>{params.name}</div>
+    <div><RepoPage/></div>
   )
 }
 
