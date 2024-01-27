@@ -13,7 +13,7 @@ const RepoPage = ({params}) => {
     //     }
     // }
   return (
-    <div>Hello</div>
+    <div>{params.name}</div>
   )
 }
 

@@ -34,7 +34,7 @@ const Profile = () => {
                 <div className="">
                     {set ? repos.map((repo)=>{
                         return (
-                            <Link className='' href={`/profile/${repo.name}`}>
+                            <Link className='' key={repo.id} href={`/profile/${repo.name}`}>
                             <div className="bg-blue-500 w-3/4 text-gray-300 mb-4 mx-auto font-bold py-2 px-4 rounded-lg">
                                 <h4 className='px-5 text-lg'>{repo.name}</h4>
                                 <div className="flex justify-between items-center text-lg px-5 py-5">
