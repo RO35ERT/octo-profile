@@ -51,12 +51,12 @@ const getLanguages = async(params) => {
                         <p>{repo.watchers}</p>
                       </div>
                 </div>
-                <div className="">
+                <div className="px-5 pb-4">
                   <h3>Languages</h3>
                   <div className="pt-2">
                       <div className="flex gap-3">
-                        {Object.keys.langs.map((lang)=>{
-                          <p>{lang}</p>
+                        {Object.keys(langs).map((lang)=>{
+                          return <p className='text-gray-900' key={lang}>{lang}</p>
                         })}
                       </div>
                   </div>
@@ -68,7 +68,7 @@ const getLanguages = async(params) => {
                         {dirs.map((dir)=>{
                           return (
                             <li className="text-lg" key={dir.name}>
-                              <div className='text-gray-500'>
+                              <div className='text-gray-900'>
                                 {dir.name}
                               </div>
                             </li>
