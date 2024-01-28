@@ -17,9 +17,11 @@ const Profile = () => {
     const  handleSubmit = async() => {
         if(search.length > 0){
             const res = await fetch(`https://api.github.com/users/${search}/repos`);
-            const data = await res.json();
-            setRepo(data);
-            setSet(true);
+            if(res.ok){
+                const data = await res.json();
+                setRepo(data);
+                setSet(true);
+            }  
         }
     }
 

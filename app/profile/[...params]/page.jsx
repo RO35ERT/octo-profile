@@ -1,5 +1,6 @@
 import React from 'react';
 import {FaStar,FaEye, FaCodeBranch} from "react-icons/fa";
+import Link from 'next/link';
 
 
 const  getData = async(params) => {
@@ -9,18 +10,28 @@ const  getData = async(params) => {
   return filtered[0];
 }
 
+
 const getDirs = async(params) => {
 
-  const res = await fetch(`https://api.github.com/users/${params.params[1]}/repos`);
+  const res = await fetch(`https://api.github.com/repos/${params.params[1]}/${params.params[0]}/contents`);
   const data = await res.json();
   const filtered = data.filter(e => e.type === 'dir');
-  return filtered[0];
+  return filtered;
 
 }
+
+const getLanguages = async(params) => {
+  const res = await fetch(`https://api.github.com/repos/${params.params[1]}/${params.params[0]}/languages`);
+  const data = await res.json();
+  return data;
+
+}
+
 
   const RepoPage = async({params}) => {
     const repo = await getData(params);
     const dirs = await getDirs(params);
+    const langs = await getLanguages(params);
   return (
     <div>
         <div className="mt-10">
@@ -40,16 +51,26 @@ const getDirs = async(params) => {
                         <p>{repo.watchers}</p>
                       </div>
                 </div>
+                <div className="">
+                  <h3>Languages</h3>
+                  <div className="pt-2">
+                      <div className="flex gap-3">
+                        {Object.keys.langs.map((lang)=>{
+                          <p>{lang}</p>
+                        })}
+                      </div>
+                  </div>
+                </div>
                 <div className="px-5 pb-4">
                   <h3>Directories</h3>
-                  <div className="">
-                      <ul className="flex flex-col gap-4">
+                  <div className="pt-2">
+                      <ul className="flex flex-col gap-2">
                         {dirs.map((dir)=>{
                           return (
                             <li className="text-lg" key={dir.name}>
-                              <Link href={`/profile/${dir.name}/${params.params[1]}`}>
-                                <a className="text-blue-500">{dir.name}</a>
-                              </Link>
+                              <div className='text-gray-500'>
+                                {dir.name}
+                              </div>
                             </li>
                           )
                         })}
