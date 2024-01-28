@@ -13,7 +13,7 @@ const  getData = async(params) => {
     const repo = await getData(params);
   return (
     <div>
-        <div className="bg-white mt-10">
+        <div className="mt-10">
             <div className="bg-blue-500 w-3/4 text-gray-300 mb-4 mx-auto font-bold py-2 px-4 rounded-lg">
                       <h4 className='px-5 text-lg'>{repo.name}</h4>
                       <div className="flex justify-between items-center text-lg px-5 py-5">
