@@ -1,4 +1,5 @@
-import React from 'react'
+import React from 'react';
+import {FaStar,FaEye, FaCodeBranch} from "react-icons/fa";
 
 
 const  getData = async(params) => {
@@ -12,8 +13,24 @@ const  getData = async(params) => {
     const repo = await getData(params);
   return (
     <div>
-        <div className="bg-white">
-            <h4>{repo.name}</h4>
+        <div className="bg-white mt-10">
+            <div className="bg-blue-500 w-3/4 text-gray-300 mb-4 mx-auto font-bold py-2 px-4 rounded-lg">
+                      <h4 className='px-5 text-lg'>{repo.name}</h4>
+                      <div className="flex justify-between items-center text-lg px-5 py-5">
+                            <div className="flex items-center gap-4">
+                                <FaStar/>
+                                <p>{repo.stargazers_count}</p>
+                            </div>
+                            <div className="flex items-center gap-4">
+                                <FaCodeBranch/>
+                                <p>{repo.forks_count}</p>
+                            </div>
+                            <div className="flex items-center gap-4">
+                                <FaEye/>
+                                <p>{repo.watchers}</p>
+                            </div>
+                      </div>
+            </div>
         </div>
     </div>
   )
