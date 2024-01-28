@@ -1,28 +1,20 @@
-'use client'
 import React from 'react'
-import { useState } from'react';
-import { useEffect } from 'react';
 
+
+const  getData = async(params) => {
+  const res = await fetch(`https://api.github.com/users/${params.params[1]}/repos`);
+  const data = await res.json();
+  const filtered = data.filter(e => e.name === params.params[0]);
+  return filtered[0];
+}
 
   const RepoPage = async({params}) => {
-    const [repo, setRepo] = useState({});
-    const [isSet, setIsSet] = useState(true);
-
-
-    const  getData = async() => {
-        const res = await fetch(`https://api.github.com/users/${params.params[1]}/repos`);
-        const data = await res.json();
-        const filtered = data.filter(e => e.name === params.params[0]);
-        return filtered[0];
-    }
-
-    
-    setRepo(await getData());
-    setIsSet(true);
-
+    const repo = await getData(params);
   return (
     <div>
-        {isSet? <div>{repo.name}</div> : <div>loading...</div>}
+        <div className="bg-white">
+            <h4>{repo.name}</h4>
+        </div>
     </div>
   )
 }
