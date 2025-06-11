@@ -59,7 +59,7 @@ const Profile = () => {
     );
 
     return (
-        <div className='h-full w-full bg-gradient-to-br from-gray-900 via-gray-800 to-slate-900 text-gray-100 sm:py-12'>
+        <div className='h-full flex flex-grow w-full bg-gradient-to-br from-gray-900 via-gray-800 to-slate-900 text-gray-100 sm:py-12'>
             <div className="container mx-auto px-4">
                 <header className="text-center mb-8 sm:mb-12">
                     <h1 className="text-4xl sm:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 mb-2">
