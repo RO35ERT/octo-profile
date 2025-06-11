@@ -32,7 +32,7 @@ export default function RootLayout({ children }) {
           No need for an extra wrapper div here just for background.
         */}
 
-        <main className="flex-grow container mx-auto px-4 py-6 sm:py-8">
+        <main className="flex-grow h-full container mx-auto px-4 py-6 sm:py-8">
           {/*
             'flex-grow' allows this main content area to expand and push the footer down.
             'container mx-auto px-4' provides consistent padding and centering for page content.
