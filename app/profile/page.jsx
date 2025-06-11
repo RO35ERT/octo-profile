@@ -124,7 +124,7 @@ const Profile = () => {
                                 <Link
                                     className='block'
                                     key={repo.id}
-                                    href={`/profile/${repo.name}/${username}`} // Assuming this route structure is desired
+                                    href={`/profile/${repo.name}/${username}`} target="_blank" rel="noopener noreferrer" // Assuming this route structure is desired
                                     // Or link to GitHub directly: href={repo.html_url} target="_blank" rel="noopener noreferrer"
                                 >
                                     <div className="bg-gray-800 hover:bg-gray-700/70 border border-gray-700 rounded-lg p-5 shadow-lg transition-all duration-200 ease-in-out hover:shadow-blue-500/30">
