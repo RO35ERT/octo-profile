@@ -22,7 +22,7 @@ export default function RootLayout({ children }) {
 
         <NavBar />
 
-        <main className="flex flex-col flex-grow"> {/* <--- KEY CHANGES HERE */}
+        <main className="flex flex-col flex-grow bg-gradient-to-br from-gray-900 via-gray-800 to-slate-900 text-gray-100"> {/* <--- KEY CHANGES HERE */}
           {/*
             - `flex flex-col`: If `children` (like HomePage) also use flex-grow, this helps them expand correctly.
             - `flex-grow`: Allows this main content area to expand and push the footer down.

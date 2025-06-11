@@ -118,7 +118,7 @@ const Profile = () => {
                     {!isLoading && !error && repos.length > 0 && (
                         <div className="space-y-4">
                             <h2 className="text-2xl font-semibold text-gray-200 mb-4 pl-1">
-                                Repositories for <span className="text-blue-400">{username}</span>:
+                                Repositories for <span className="text-blue-400">{username}</span>
                             </h2>
                             {repos.map((repo) => (
                                 <Link
